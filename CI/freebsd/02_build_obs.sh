@@ -74,7 +74,7 @@ _backup_artifacts() {
             step "Back up $(basename "${PACKAGE_NAME}")..."
             ensure_dir "${NIGHTLY_DIR}"
             ensure_dir "${CHECKOUT_DIR}"
-            /usr/bin/find "${BUILD_DIR}" -maxdepth 1 \( -name "obs-studio-*.sh" -o -name "obs-studio-*.tar.gz" -o -name "obs-studio-*.tar.Z" \) -print0 | /usr/bin/xargs -0 -I {} /bin/mv {} ${NIGHTLY_DIR}/
+            /usr/bin/find "${BUILD_DIR}" -maxdepth 1 \( -name "redbridge-studio-*.sh" -o -name "redbridge-studio-*.tar.gz" -o -name "redbridge-studio-*.tar.Z" \) -print0 | /usr/bin/xargs -0 -I {} /bin/mv {} ${NIGHTLY_DIR}/
             info "You can find $(basename "${PACKAGE_NAME}") in ${NIGHTLY_DIR}"
         fi
     fi
@@ -82,7 +82,7 @@ _backup_artifacts() {
 
 build-obs-standalone() {
     CHECKOUT_DIR="$(git rev-parse --show-toplevel)"
-    PRODUCT_NAME="OBS-Studio"
+    PRODUCT_NAME="redbridge-studio"
     DEPS_BUILD_DIR="${CHECKOUT_DIR}/../obs-build-dependencies"
     source "${CHECKOUT_DIR}/CI/include/build_support.sh"
     source "${CHECKOUT_DIR}/CI/include/build_support_freebsd.sh"

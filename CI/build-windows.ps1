@@ -46,7 +46,7 @@ Param(
 $ErrorActionPreference = "Stop"
 
 $_RunObsBuildScript = $true
-$ProductName = "OBS-Studio"
+$ProductName = "redbridge-studio"
 
 $CheckoutDir = Resolve-Path -Path "$PSScriptRoot\.."
 $DepsBuildDir = "${CheckoutDir}/../obs-build-dependencies"

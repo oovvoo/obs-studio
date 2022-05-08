@@ -27,7 +27,7 @@ set -eE
 
 ## SET UP ENVIRONMENT ##
 _RUN_OBS_BUILD_SCRIPT=TRUE
-PRODUCT_NAME="OBS-Studio"
+PRODUCT_NAME="redbridge-studio"
 
 CHECKOUT_DIR="$(git rev-parse --show-toplevel)"
 DEPS_BUILD_DIR="${CHECKOUT_DIR}/../obs-build-dependencies"
@@ -87,7 +87,7 @@ obs-build-main() {
         VERSION_STRING="${GIT_TAG}-${GIT_HASH}"
     fi
 
-    FILE_NAME="obs-studio-${VERSION_STRING}-Linux.deb"
+    FILE_NAME="redbridge-studio-${VERSION_STRING}-Linux.deb"
 
     if [ -z "${SKIP_DEP_CHECKS}" ]; then
         install_dependencies

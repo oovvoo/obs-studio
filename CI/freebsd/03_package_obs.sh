@@ -20,7 +20,7 @@ package_obs() {
     step "Package OBS..."
     cmake --build ${BUILD_DIR} -t package
 
-    ZIP_NAME="$(/usr/bin/find "${BUILD_DIR}" -maxdepth 1 -type f -name "obs-studio-*.sh" | sort -rn | head -1)"
+    ZIP_NAME="$(/usr/bin/find "${BUILD_DIR}" -maxdepth 1 -type f -name "redbridge-studio-*.sh" | sort -rn | head -1)"
 
     if [ "${ZIP_NAME}" ]; then
         mv "${ZIP_NAME%.*}.sh" "${BUILD_DIR}/${FILE_NAME}.sh"
@@ -32,7 +32,7 @@ package_obs() {
 }
 
 package-obs-standalone() {
-    PRODUCT_NAME="OBS-Studio"
+    PRODUCT_NAME="redbridge-studio"
 
     CHECKOUT_DIR="$(git rev-parse --show-toplevel)"
     DEPS_BUILD_DIR="${CHECKOUT_DIR}/../obs-build-dependencies"
@@ -46,7 +46,7 @@ package-obs-standalone() {
     GIT_HASH=$(git rev-parse --short=9 HEAD)
     GIT_TAG=$(git describe --tags --abbrev=0)
 
-    FILE_NAME="obs-studio-${GIT_TAG}-${GIT_HASH}-FreeBSD"
+    FILE_NAME="redbridge-studio-${GIT_TAG}-${GIT_HASH}-FreeBSD"
     package_obs
 }
 

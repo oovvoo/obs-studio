@@ -136,7 +136,7 @@ static bool gl_init_extensions(struct gs_device *device)
 {
 	if (!GLAD_GL_VERSION_3_3) {
 		blog(LOG_ERROR,
-		     "obs-studio requires OpenGL version 3.3 or higher.");
+		     "redbridge-studio requires OpenGL version 3.3 or higher.");
 		return false;
 	}
 

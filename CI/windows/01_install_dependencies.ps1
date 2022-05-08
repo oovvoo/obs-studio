@@ -142,7 +142,7 @@ function Install-Dependencies {
 }
 
 function Install-Dependencies-Standalone {
-    $ProductName = "OBS-Studio"
+    $ProductName = "redbridge-studio"
     $CheckoutDir = Resolve-Path -Path "$PSScriptRoot\..\.."
     $DepsBuildDir = "${CheckoutDir}/../obs-build-dependencies"
     $ObsBuildDir = "${CheckoutDir}/../obs-studio"

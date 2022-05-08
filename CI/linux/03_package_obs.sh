@@ -30,7 +30,7 @@ package_obs() {
 }
 
 package-obs-standalone() {
-    PRODUCT_NAME="OBS-Studio"
+    PRODUCT_NAME="redbridge-studio"
 
     CHECKOUT_DIR="$(git rev-parse --show-toplevel)"
     DEPS_BUILD_DIR="${CHECKOUT_DIR}/../obs-build-dependencies"
@@ -50,7 +50,7 @@ package-obs-standalone() {
         VERSION_STRING="${GIT_TAG}-${GIT_HASH}"
     fi
 
-    FILE_NAME="obs-studio-${VERSION_STRING}-Linux.deb"
+    FILE_NAME="redbridge-studio-${VERSION_STRING}-Linux.deb"
     package_obs
 }
 

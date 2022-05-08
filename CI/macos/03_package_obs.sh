@@ -109,7 +109,7 @@ _caught_error_xcnotary() {
 }
 
 package-obs-standalone() {
-    PRODUCT_NAME="OBS-Studio"
+    PRODUCT_NAME="redbridge-studio"
 
     CHECKOUT_DIR="$(/usr/bin/git rev-parse --show-toplevel)"
     DEPS_BUILD_DIR="${CHECKOUT_DIR}/../obs-build-dependencies"
@@ -134,11 +134,11 @@ package-obs-standalone() {
 
     if [ -z "${NOTARIZE_IMAGE}" -a -z "${NOTARIZE_BUNDLE}" ]; then
         if [ "${ARCH}" = "arm64" ]; then
-            FILE_NAME="obs-studio-${VERSION_STRING}-macOS-Apple.dmg"
+            FILE_NAME="redbridge-studio-${VERSION_STRING}-macOS-Apple.dmg"
         elif [ "${ARCH}" = "universal" ]; then
-            FILE_NAME="obs-studio-${VERSION_STRING}-macOS.dmg"
+            FILE_NAME="redbridge-studio-${VERSION_STRING}-macOS.dmg"
         else
-            FILE_NAME="obs-studio-${VERSION_STRING}-macOS-Intel.dmg"
+            FILE_NAME="redbridge-studio-${VERSION_STRING}-macOS-Intel.dmg"
         fi
 
         package_obs

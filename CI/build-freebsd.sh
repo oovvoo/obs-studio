@@ -27,7 +27,7 @@ set -eE
 
 ## SET UP ENVIRONMENT ##
 _RUN_OBS_BUILD_SCRIPT=TRUE
-PRODUCT_NAME="OBS-Studio"
+PRODUCT_NAME="redbridge-studio"
 
 CHECKOUT_DIR="$(git rev-parse --show-toplevel)"
 DEPS_BUILD_DIR="${CHECKOUT_DIR}/../obs-build-dependencies"
@@ -80,7 +80,7 @@ obs-build-main() {
     GIT_HASH=$(git rev-parse --short HEAD)
     GIT_TAG=$(git describe --tags --abbrev=0)
 
-    FILE_NAME="obs-studio-${GIT_TAG}-${GIT_HASH}-FreeBSD"
+    FILE_NAME="redbridge-studio-${GIT_TAG}-${GIT_HASH}-FreeBSD"
 
     if [ -z "${SKIP_DEP_CHECKS}" ]; then
         install_dependencies
