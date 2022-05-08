@@ -107,3 +107,5 @@ tags
 /flatpak_app/
 /repo/
 /CI/flatpak/flatpak-github-action-modified-*
+/out/build/x64-Debug/CMakeFiles
+/out/build/x64-Debug
