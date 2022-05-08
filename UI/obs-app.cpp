@@ -1479,6 +1479,7 @@ bool OBSApp::OBSInit()
 	connect(mainWindow, SIGNAL(destroyed()), this, SLOT(quit()));
 
 	mainWindow->OBSInit();
+	mainWindow->setWindowTitle("RED Bridge - Smart Teaching Solution");
 
 	connect(this, &QGuiApplication::applicationStateChanged,
 		[this](Qt::ApplicationState state) {
