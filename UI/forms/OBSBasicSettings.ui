@@ -152,7 +152,7 @@
               <x>0</x>
               <y>0</y>
               <width>810</width>
-              <height>952</height>
+              <height>942</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -227,22 +227,6 @@
                       </size>
                      </property>
                     </spacer>
-                   </item>
-                   <item row="2" column="1">
-                    <widget class="QCheckBox" name="enableAutoUpdates">
-                     <property name="enabled">
-                      <bool>false</bool>
-                     </property>
-                     <property name="text">
-                      <string>Basic.Settings.General.EnableAutoUpdates</string>
-                     </property>
-                     <property name="checkable">
-                      <bool>false</bool>
-                     </property>
-                     <property name="checked">
-                      <bool>false</bool>
-                     </property>
-                    </widget>
                    </item>
                    <item row="3" column="1">
                     <widget class="QCheckBox" name="openStatsOnStartup">
@@ -5808,7 +5792,6 @@
   <tabstop>scrollArea_2</tabstop>
   <tabstop>language</tabstop>
   <tabstop>theme</tabstop>
-  <tabstop>enableAutoUpdates</tabstop>
   <tabstop>openStatsOnStartup</tabstop>
   <tabstop>warnBeforeStreamStart</tabstop>
   <tabstop>warnBeforeStreamStop</tabstop>

@@ -382,7 +382,7 @@ OBSBasicSettings::OBSBasicSettings(QWidget *parent)
 	/* clang-format off */
 	HookWidget(ui->language,             COMBO_CHANGED,  GENERAL_CHANGED);
 	HookWidget(ui->theme, 		     COMBO_CHANGED,  GENERAL_CHANGED);
-	HookWidget(ui->enableAutoUpdates,    CHECK_CHANGED,  GENERAL_CHANGED);
+	//HookWidget(ui->enableAutoUpdates,    CHECK_CHANGED,  GENERAL_CHANGED);
 	HookWidget(ui->openStatsOnStartup,   CHECK_CHANGED,  GENERAL_CHANGED);
 	HookWidget(ui->hideOBSFromCapture,   CHECK_CHANGED,  GENERAL_CHANGED);
 	HookWidget(ui->warnBeforeStreamStart,CHECK_CHANGED,  GENERAL_CHANGED);
@@ -1258,9 +1258,9 @@ void OBSBasicSettings::LoadGeneralSettings()
 	LoadThemeList();
 
 #if defined(_WIN32) || defined(__APPLE__)
-	bool enableAutoUpdates = config_get_bool(GetGlobalConfig(), "General",
+	/*bool enableAutoUpdates = config_get_bool(GetGlobalConfig(), "General",
 						 "EnableAutoUpdates");
-	ui->enableAutoUpdates->setChecked(enableAutoUpdates);
+	ui->enableAutoUpdates->setChecked(enableAutoUpdates);*/
 #endif
 	bool openStatsOnStartup = config_get_bool(main->Config(), "General",
 						  "OpenStatsOnStartup");
@@ -3100,10 +3100,10 @@ void OBSBasicSettings::SaveGeneralSettings()
 	}
 
 #if defined(_WIN32) || defined(__APPLE__)
-	if (WidgetChanged(ui->enableAutoUpdates))
+	/*if (WidgetChanged(ui->enableAutoUpdates))
 		config_set_bool(GetGlobalConfig(), "General",
 				"EnableAutoUpdates",
-				ui->enableAutoUpdates->isChecked());
+				ui->enableAutoUpdates->isChecked());*/
 #endif
 #ifdef _WIN32
 	if (ui->hideOBSFromCapture && WidgetChanged(ui->hideOBSFromCapture)) {
