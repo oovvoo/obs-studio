@@ -474,7 +474,7 @@ bool OBSApp::InitGlobalConfigDefaults()
 
 	if (!config_get_bool(globalConfig, "General", "Pre21Defaults")) {
 		config_set_default_string(globalConfig, "General",
-					  "CurrentTheme", "Acri");
+					  "CurrentTheme", "System");
 	}
 
 	config_set_default_string(globalConfig, "General", "HotkeyFocusType",
