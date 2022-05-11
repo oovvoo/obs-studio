@@ -434,7 +434,7 @@ bool OBSApp::InitGlobalConfigDefaults()
 	config_set_default_bool(globalConfig, "BasicWindow", "PreviewEnabled",
 				true);
 	config_set_default_bool(globalConfig, "BasicWindow",
-				"PreviewProgramMode", true);
+				"PreviewProgramMode", false);
 	config_set_default_bool(globalConfig, "BasicWindow",
 				"SceneDuplicationMode", true);
 	config_set_default_bool(globalConfig, "BasicWindow", "SwapScenesMode",
@@ -469,8 +469,25 @@ bool OBSApp::InitGlobalConfigDefaults()
 				true);
 	config_set_default_bool(globalConfig, "BasicWindow",
 				"ShowContextToolbars", true);
-	config_set_default_bool(globalConfig, "BasicWindow", "StudioModeLabels",
+
+
+	/*NDI 설정*/
+	config_set_default_bool(globalConfig, "NDIPlugin", "MainOutputEnabled", true);
+	config_set_default_string(globalConfig, "NDIPlugin", "MainOutputName",
+			  "RedBridge");
+	config_set_default_bool(globalConfig, "NDIPlugin",
+				"PreviewOutputEnabled",
+			true);
+	config_set_default_string(globalConfig, "NDIPlugin",
+				  "PreviewOutputName",
+			  "RedBridge Preview");
+	config_save_safe(globalConfig, "tmp", nullptr);
+
+	
+	config_set_default_bool(globalConfig, "MainOutputEnabled", "StudioModeLabels",
 				true);
+
+
 
 	if (!config_get_bool(globalConfig, "General", "Pre21Defaults")) {
 		config_set_default_string(globalConfig, "General",
@@ -481,7 +498,7 @@ bool OBSApp::InitGlobalConfigDefaults()
 				  "NeverDisableHotkeys");
 
 	config_set_default_bool(globalConfig, "BasicWindow",
-				"VerticalVolControl", true);
+				"VerticalVolControl", false);
 
 	config_set_default_bool(globalConfig, "BasicWindow",
 				"MultiviewMouseSwitch", true);
@@ -725,6 +742,25 @@ bool OBSApp::InitGlobalConfig()
 		return false;
 	}
 
+	
+	/*
+	* 추가 기본 옵션 설정 ( NDI ) 강제설정
+	*/
+	config_set_bool(globalConfig, "NDIPlugin", "MainOutputEnabled",
+				true);
+	config_set_string(globalConfig, "NDIPlugin", "MainOutputName",
+				  "RedBridge");
+	config_set_bool(globalConfig, "NDIPlugin",
+				"PreviewOutputEnabled", false);
+	config_set_string(globalConfig, "NDIPlugin",
+				  "PreviewOutputName", "RedBridge Preview");	
+	config_save_safe(globalConfig, "tmp", nullptr);
+
+	/*
+	* 추가 기본 옵션 설정 ( NDI )
+	*/
+
+
 	if (!opt_starting_collection.empty()) {
 		string path = GetSceneCollectionFileFromName(
 			opt_starting_collection.c_str());
@@ -814,6 +850,8 @@ bool OBSApp::InitGlobalConfig()
 
 	if (changed)
 		config_save_safe(globalConfig, "tmp", nullptr);
+
+
 
 	return InitGlobalConfigDefaults();
 }
@@ -1479,7 +1517,7 @@ bool OBSApp::OBSInit()
 	connect(mainWindow, SIGNAL(destroyed()), this, SLOT(quit()));
 
 	mainWindow->OBSInit();
-	mainWindow->setWindowTitle("RED Bridge - Smart Teaching Solution");
+	mainWindow->setWindowTitle("RED Bridge - Blended Teaching Solution");
 
 	connect(this, &QGuiApplication::applicationStateChanged,
 		[this](Qt::ApplicationState state) {

@@ -813,8 +813,9 @@ void OBSBasic::CreateDefaultScene(bool firstStart)
 
 	OBSSceneAutoRelease scene = obs_scene_create(Str("Basic.Scene"));
 
-	if (firstStart)
-		CreateFirstRunSources();
+	/* 첫 시작 시 , 오디오 소스 할당 막음 */
+	/*if (firstStart)
+		CreateFirstRunSources();*/
 
 	SetCurrentScene(scene, true);
 
